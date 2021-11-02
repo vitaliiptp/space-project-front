@@ -1,0 +1,10 @@
+.planet {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.planet img {
+    width: 20em;
+    height: 20em;
+}

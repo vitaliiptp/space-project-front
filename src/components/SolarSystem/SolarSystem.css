@@ -1,0 +1,7 @@
+.solar-system-container {
+    /*background: url(./bg-img-main.png) !*no-repeat center center fixed*!;*/
+    /*object-fit: fill;*/
+    flex-direction: column;
+    /*width: 100%;*/
+    /*height: 100%;*/
+}
