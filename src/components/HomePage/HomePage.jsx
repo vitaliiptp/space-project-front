@@ -4,15 +4,15 @@ const HomePage = () => {
     return (
         <div  id="main" className="grid-container grid-container--home">
             <div>
-                <h1 className="text-accent fs-500 ff-sans-cond uppercase letter-spacing-1">So, you want to travel to
+                <h1 className="text-accent fs-500 ff-sans-cond uppercase letter-spacing-1">You are fascinated by the
                     <span className="d-block fs-900 ff-serif text-white">Space</span></h1>
 
-                <p>Let’s face it; if you want to go to space, you might as well genuinely go to
-                    outer space and not hover kind of on the edge of it. Well sit back, and relax
-                    because we’ll give you a truly out of this world experience! </p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus ipsam libero
+                    quaerat sapiente sunt tempora ullam. Debitis harum tempora vitae. Ad alias aut
+                    dolores id labore laborum nemo optio ullam! </p>
             </div>
             <div>
-                <a href="destination.html" className="large-button uppercase ff-serif text-dark bg-white">Explore</a>
+                <a href="solar-system.html" className="large-button uppercase ff-serif text-dark bg-white">Ignition Sequence Start</a>
             </div>
         </div>
     );
