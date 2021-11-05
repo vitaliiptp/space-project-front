@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import ModalPlanet from "../ModalPlanet/ModalPlanet";
 import "./Planet.css";
-import PlanetDataFetch from "../PlanetDataFetch/PlanetDataFetch";
+import usePlanetDataFetch from "../PlanetDataFetch/PlanetDataFetch";
 
 const Container = styled.div`
   display: flex;
@@ -11,12 +11,14 @@ const Container = styled.div`
   height: 100vh;
 `;
 
+
 const Planet = ({ name, image, size }) => {
   //   // Params within React Router
   // const params = match.params;
 
+
   const [showModal, setShowModal] = useState(false);
-  const { planetData, loading } = PlanetDataFetch();
+  const { planetData } = usePlanetDataFetch();
   const [showPlanetData, setShowPlanetData] = useState("");
 
   const openModal = () => {
@@ -26,16 +28,15 @@ const Planet = ({ name, image, size }) => {
 
   const planetDataFilter = () => {
     setShowPlanetData(
-      planetData.filter((planet) => planet.englishName === name)[0]
+        planetData.filter((planet) => planet.englishName === name)[0]
     );
     console.log(showPlanetData);
   };
 
   return (
-    <div className="planet">
+      <div className="planet">
 
-      {/*/!*Params within React Router*!/*/}
-      {/*<p>{params.planet}</p>*/}
+
       
     
 
@@ -52,6 +53,10 @@ const Planet = ({ name, image, size }) => {
         />
       </Container>
     </div>
+
+       
+        
+
   );
 };
 
