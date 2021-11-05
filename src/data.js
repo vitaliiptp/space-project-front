@@ -13,49 +13,69 @@ import venus from '../src/assets/solarSystem/noBackground/venus_nb.png'
 
 const Planets = [
     {
-        name: 'Earth',
-        image: earth
-    },
-    {
-        name: 'Jupiter',
-        image: jupiter
-    },
-    {
-        name: 'Mars',
-        image: mars
+        name: 'Sun',
+        image: sun,
+        size:"450px"
     },
     {
         name: 'Mercury',
-        image: mercury
-    },
-    {
-        name: 'Moon',
-        image: moon
-    },
-    {
-        name: 'Neptune',
-        image: neptune
-    },
-    {
-        name: 'Pluto',
-        image: pluto
-    },
-    {
-        name: 'Saturn',
-        image: saturn
-    },
-    {
-        name: 'Sun',
-        image: sun
-    },
-    {
-        name: 'Uranus',
-        image: uranus
+        image: mercury,
+        size:"24px"
     },
     {
         name: 'Venus',
-        image: venus
-    }
+        image: venus,
+        size:"60.5px"
+    },
+    { 
+        name: 'Earth',
+        image: earth,
+        size:"67.7px"
+    },
+    {
+        name: 'Moon',
+        image: moon,
+        size:"20px"
+    },
+    {
+        name: 'Mars',
+        image: mars,
+        size:"33px"
+    },
+    {
+        name: 'Jupiter',
+        image: jupiter,
+        size:"280px"
+    },
+    {
+        name: 'Saturn',
+        image: saturn,
+        size:"240px"
+    },
+    {
+        name: 'Uranus',
+        image: uranus,
+        size:"100px"
+    },
+    {
+        name: 'Neptune',
+        image: neptune,
+        size:"90px"
+    },
+    {
+        name: 'Pluto',
+        image: pluto,
+        size:"20px"
+    },
+    
+    
+    
+    
+   
+    
+    
+    
+    
 ];
 
 export default Planets;

@@ -9,8 +9,9 @@ import InternationalSpaceStation from "./components/InternationSpaceStation/Inte
 
 export default function App() {
   return (
+    < div className="blockPage" style={{maxWidth:"100%"}}>
     <Router>
-      <div className="App home">
+      <div className="Apphome" style={{maxWidth:"100%"}}>
         <NavBar />
         <Switch>
           <Route exact path="/" component={HomePage} />
@@ -26,5 +27,6 @@ export default function App() {
         </Switch>
       </div>
     </Router>
+    </div>
   );
 }

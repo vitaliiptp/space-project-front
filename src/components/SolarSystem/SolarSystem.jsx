@@ -5,9 +5,9 @@ import "./SolarSystem.css";
 
 const SolarSystem = () => {
   return (
-    <div className="solar-system-container">
+    <div className="solar-system-container" style={{display:"flex"}}>
       {Planets.map((planet) => (
-        <Planet name={planet.name} image={planet.image} />
+        <Planet size={planet.size} name={planet.name} image={planet.image} />
       ))}
     </div>
   );

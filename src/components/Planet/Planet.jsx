@@ -11,7 +11,7 @@ const Container = styled.div`
   height: 100vh;
 `;
 
-const Planet = ({ name, image, match }) => {
+const Planet = ({ name, image, size }) => {
   //   // Params within React Router
   // const params = match.params;
 
@@ -36,17 +36,13 @@ const Planet = ({ name, image, match }) => {
 
       {/*/!*Params within React Router*!/*/}
       {/*<p>{params.planet}</p>*/}
+      
+    
 
-      <div>
-        {loading && <div>Loading</div>}
-        {!loading && (
-          <div>
-            <button onClick={openModal}>More Info</button>
-          </div>
-        )}
-      </div>
       <Container>
-        <img src={image} alt={name} onClick={openModal} />
+        
+        <img style={{width:size}}src={image} alt={name} onClick={openModal} />
+        
         <ModalPlanet
           showModal={showModal}
           setShowModal={setShowModal}
@@ -60,3 +56,14 @@ const Planet = ({ name, image, match }) => {
 };
 
 export default Planet;
+
+
+/*{
+      <div>
+        {loading && <div>Loading</div>}
+        {!loading && (
+          <div>
+            <button onClick={openModal}>More Info</button>
+          </div>
+        )}
+      </div>}*/
