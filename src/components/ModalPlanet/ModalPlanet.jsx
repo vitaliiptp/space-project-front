@@ -1,9 +1,7 @@
 import React, { useRef, useEffect, useCallback } from 'react';
 import { useSpring, animated } from 'react-spring';
-// import PlanetDataFetch from "../PlanetDataFetch/PlanetDataFetch";
 import styled from 'styled-components';
 import { MdClose } from 'react-icons/md';
-import style from './ModalPlanet.css'
 
 
 
@@ -68,7 +66,6 @@ const CloseModalButton = styled(MdClose)`
 
 
 const ModalPlanet = ({ showModal, setShowModal, name, image, showPlanetData}) => {
-    // const {planetData} = PlanetDataFetch();
     const modalRef = useRef();
 
     const animation = useSpring({
@@ -105,30 +102,30 @@ const ModalPlanet = ({ showModal, setShowModal, name, image, showPlanetData}) =>
 
     return (
 
-      <>
-        {showModal ? (
-          <Background onClick={closeModal} ref={modalRef}>
-            <animated.div style={animation}>
-              <ModalWrapper showModal={showModal}>
-                <ModalImg src={image} alt="earth" />
-                <ModalContent>
-                  <h1>{name}</h1>
-                    <p><b>Gravity:</b> {showPlanetData.gravity} m/s²</p>
-                    <p><b>Radius:</b> {showPlanetData.meanRadius} km</p>
-                    <p><b>Mass:</b> {showPlanetData.mass.massValue} x 10<sup>{showPlanetData.mass.massExponent}</sup> kg</p>
-                    <p><b>Orbital period:</b> {showPlanetData.sideralOrbit} days</p>
-                    <p><b>Rotation period:</b> {showPlanetData.sideralRotation} days</p>
-                    <button style={{ cursor: 'pointer' }} onClick={() => setShowModal((prev) => !prev)}>Go back to Solar System</button>
-                </ModalContent>
-                <CloseModalButton
-                  aria-label="Close modal"
-                  onClick={() => setShowModal((prev) => !prev)}
-                />
-              </ModalWrapper>
-            </animated.div>
-          </Background>
-        ) : null}
-      </>
+        <>
+            {showModal ? (
+                <Background onClick={closeModal} ref={modalRef}>
+                    <animated.div style={animation}>
+                        <ModalWrapper showModal={showModal}>
+                            <ModalImg src={image} alt="earth" />
+                            <ModalContent>
+                                <h1>{name}</h1>
+                                <p><b>Gravity:</b> {showPlanetData.gravity} m/s²</p>
+                                <p><b>Radius:</b> {showPlanetData.meanRadius} km</p>
+                                <p><b>Mass:</b> {showPlanetData.mass.massValue} x 10<sup>{showPlanetData.mass.massExponent}</sup> kg</p>
+                                <p><b>Orbital period:</b> {showPlanetData.sideralOrbit} days</p>
+                                <p><b>Rotation period:</b> {showPlanetData.sideralRotation} days</p>
+                                <button style={{ cursor: 'pointer' }} onClick={() => setShowModal((prev) => !prev)}>Go back to Solar System</button>
+                            </ModalContent>
+                            <CloseModalButton
+                                aria-label="Close modal"
+                                onClick={() => setShowModal((prev) => !prev)}
+                            />
+                        </ModalWrapper>
+                    </animated.div>
+                </Background>
+            ) : null}
+        </>
     );
 };
 
