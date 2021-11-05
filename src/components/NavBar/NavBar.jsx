@@ -1,48 +1,87 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import Icon from '../../assets/shared/logo.png'
+import React, { useState } from "react";
+import { Link, useLocation } from "react-router-dom";
+import {NavbarBrand} from "react-bootstrap";
+import logo from "../../assets/shared/logo3.png";
 
-const NavBar = () => {
+const NavBar = ({ activeTab, setActiveTab }) => {
+    const [navToggle, setNavToggle] = useState(false);
+
+
+    //assigning location variable
+    const location = useLocation();
+    //destructuring pathname from location
+    const { pathname } = location;
+    //Javascript split method to get the name of the path in array
+    const splitLocation = pathname.split("/");
+    setActiveTab(splitLocation[1])
+
+
+
+    const handleToggle = () => {
+        console.log(navToggle);
+        setNavToggle(!navToggle);
+    };
+
     return (
         <div className="primary-header flex">
-            <div>
-                <img src={Icon} style={{ width: "15em", aspectRatio: "1" }} />
-            </div>
-            <button className="mobile-nav-toggle" aria-controls="primary-navigation"><span className="sr-only"
-                   aria-expanded="false">Menu</span>
+            <NavbarBrand>
+                <Link to="/">
+                    <img
+                        className="logo flex"
+                        src={logo}
+                        alt="logo"
+                    />
+                </Link>
+            </NavbarBrand>
+            <button
+                className="mobile-nav-toggle"
+                aria-expanded={navToggle}
+                aria-controls="primary-navigation"
+                onClick={handleToggle}
+            >
+                <span className="sr-only">Menu</span>
             </button>
             <nav>
-                <ul id="primary-navigation" data-visible="false" className="primary-navigation underline-indicators flex">
-
-                    <li className="active">
-                        <Link to='/' className="ff-sans-cond uppercase text-white letter-spacing-2">
-                            <span aria-hidden="true">00</span>Home</Link>
+                <ul
+                    data-visible={navToggle}
+                    className="primary-navigation underline-indicators flex"
+                >
+                    <li className={activeTab === "" ? "active" : ""}>
+                        <Link
+                            to="/"
+                            className="ff-sans-cond uppercase text-white letter-spacing-2"
+                        >
+                            <span aria-hidden="true">00</span>Home
+                        </Link>
                     </li>
-                    <li>
-                        <Link to='/picture-of-the-day' className="ff-sans-cond uppercase text-white letter-spacing-2">
-                            <span aria-hidden="true">01</span>Picture Of The Day</Link>
+                    <li className={activeTab === "picture-of-the-day" ? "active" : ""}>
+                        <Link
+                            to="/picture-of-the-day"
+                            className="ff-sans-cond uppercase text-white letter-spacing-2"
+                        >
+                            <span aria-hidden="true">01</span>Picture Of The Day
+                        </Link>
                     </li>
-                    <li>
-                        <Link to='/solar-system' className="ff-sans-cond uppercase text-white letter-spacing-2">
-                            <span aria-hidden="true">03</span>Solar System</Link>
+                    <li className={activeTab === "solar-system" ? "active" : ""}>
+                        <Link
+                            to="/solar-system"
+                            className="ff-sans-cond uppercase text-white letter-spacing-2"
+                        >
+                            <span aria-hidden="true">03</span>Solar System
+                        </Link>
                     </li>
-                    <li>
-                        <Link to='/isp' className="ff-sans-cond uppercase text-white letter-spacing-2">
-                            <span aria-hidden="true">04</span>Internation Space Station</Link>
+                    <li className={activeTab === "isp" ? "active" : ""}>
+                        <Link
+                            to="/isp"
+                            className="ff-sans-cond uppercase text-white letter-spacing-2"
+                        >
+                            <span aria-hidden="true">04</span>Internation Space Station
+                        </Link>
                     </li>
-
-                    {/*/!*Params within React Router*!/*/}
-                    {/*<li>*/}
-                    {/*    <Link to='/solar-system/earth'>Earth</Link>*/}
-                    {/*</li>*/}
-                    {/*<li>*/}
-                    {/*    <Link to='/solar-system/sun'>Sun</Link>*/}
-                    {/*</li>*/}
-
                 </ul>
             </nav>
         </div>
-    )
+    );
 };
 
 export default NavBar;
