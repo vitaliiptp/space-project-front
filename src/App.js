@@ -27,7 +27,6 @@ export default function App() {
             </Route>
             <Route exact path="/solar-system" component={SolarSystem} />
             <Route path="/isp" component={InternationalSpaceStation} />
-            <Route exact path="/solar-system/:planet" component={Planet} />
           </Switch>
         </div>
       </Router>

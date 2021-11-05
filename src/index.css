@@ -578,6 +578,7 @@ as first-child has extra specificity*/
     place-items: center;
     padding-inline: 1rem;
     padding-bottom: 4rem;
+    min-height: 100vh;
 }
 
 .grid-container p:not([class]) {

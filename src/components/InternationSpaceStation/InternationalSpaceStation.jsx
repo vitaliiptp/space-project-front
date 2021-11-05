@@ -2,7 +2,7 @@ import React from 'react';
 
 const InternationalSpaceStation = () => {
     return (
-        <div className="flex-container">
+        <div className="flex-container grid-container">
 
         </div>
     );
