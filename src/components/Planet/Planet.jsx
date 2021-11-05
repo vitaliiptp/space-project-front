@@ -11,7 +11,11 @@ const Container = styled.div`
   height: 100vh;
 `;
 
-const Planet = ({ name, image, match }) => {
+
+const Planet = ({ name, image, size }) => {
+  //   // Params within React Router
+  // const params = match.params;
+
 
   const [showModal, setShowModal] = useState(false);
   const { planetData } = usePlanetDataFetch();
@@ -32,23 +36,39 @@ const Planet = ({ name, image, match }) => {
   return (
       <div className="planet">
 
-        <div>
-          <div>
-            <button onClick={openModal}>More Info</button>
-          </div>
-        </div>
-        <Container>
-          <img src={image} alt={name} onClick={openModal} />
-          <ModalPlanet
-              showModal={showModal}
-              setShowModal={setShowModal}
-              name={name}
-              image={image}
-              showPlanetData={showPlanetData}
-          />
-        </Container>
-      </div>
+
+      
+    
+
+      <Container>
+        
+        <img style={{width:size}}src={image} alt={name} onClick={openModal} />
+        
+        <ModalPlanet
+          showModal={showModal}
+          setShowModal={setShowModal}
+          name={name}
+          image={image}
+          showPlanetData={showPlanetData}
+        />
+      </Container>
+    </div>
+
+       
+        
+
   );
 };
 
 export default Planet;
+
+
+/*{
+      <div>
+        {loading && <div>Loading</div>}
+        {!loading && (
+          <div>
+            <button onClick={openModal}>More Info</button>
+          </div>
+        )}
+      </div>}*/

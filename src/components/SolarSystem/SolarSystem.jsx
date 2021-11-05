@@ -9,17 +9,13 @@ const SolarSystem = () => {
   const { loading } = usePlanetDataFetch();
 
   return (
-      <>
-        {loading ? (
-            <Loader />
-        ) : (
-            <div className="solar-system-container">
-              {Planets.map((planet) => (
-                  <Planet name={planet.name} image={planet.image} />
-              ))}
-            </div>
-        )}
-      </>
+
+    <div className="solar-system-container" style={{display:"flex"}}>
+      {Planets.map((planet) => (
+        <Planet size={planet.size} name={planet.name} image={planet.image} />
+      ))}
+    </div>
+
   );
 };
 

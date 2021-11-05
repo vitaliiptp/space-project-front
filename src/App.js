@@ -11,7 +11,10 @@ import {useState} from "react";
 
 
 export default function App() {
+
   const [activeTab, setActiveTab] = useState('home')
+
+
 
 
 
@@ -30,5 +33,6 @@ export default function App() {
           </Switch>
         </div>
       </Router>
+
   );
 }
