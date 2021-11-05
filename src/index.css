@@ -486,7 +486,7 @@ as first-child has extra specificity*/
 
 /* Solar System */
 .solar-system {
-    background-image: url(./assets/background/international-space-station/bg-img-main.png);
+    background-image: url(assets/background/solar-system/bg-img-ss.png);
     background-size: cover;
     background-position: bottom center;
 }
@@ -494,14 +494,15 @@ as first-child has extra specificity*/
 @media (min-width: 35rem) {
     .solar-system {
         background-position: center center;
-        background-image: url(./assets/background/international-space-station/bg-img-main.png);
+        background-image: url(assets/background/solar-system/bg-img-ss.png);
         background-size: cover;
     }
 }
 
 @media (min-width: 45rem) {
     .solar-system {
-        background-image: url(./assets/background/international-space-station/bg-img-main.png);
+
+        background-image: url(assets/background/solar-system/bg-img-ss.png);
         background-size: cover;
         background-position: bottom center;
     }
@@ -510,7 +511,7 @@ as first-child has extra specificity*/
 
 /* International Space Station */
 .isp {
-    background-image: url(./assets/background/international-space-station/bg-img-main.png);
+    background-image: url(./assets/background/international-space-station/bg-img-isp.png);
     background-size: cover;
     background-position: bottom center;
 }
@@ -518,14 +519,14 @@ as first-child has extra specificity*/
 @media (min-width: 35rem) {
     .isp {
         background-position: center center;
-        background-image: url(./assets/background/international-space-station/bg-img-main.png);
+        background-image: url(./assets/background/international-space-station/bg-img-isp.png);
         background-size: cover;
     }
 }
 
 @media (min-width: 45rem) {
     .isp {
-        background-image: url(./assets/background/international-space-station/bg-img-main.png);
+        background-image: url(./assets/background/international-space-station/bg-img-isp.png);
         background-size: cover;
         background-position: bottom center;
     }
@@ -533,7 +534,7 @@ as first-child has extra specificity*/
 
 /* Picture of the day */
 .picture-of-the-day {
-    background-image: url(./assets/background/picture-of-the-day/bg-img-pfd2.png);
+    background-image: url(./assets/background/picture-of-the-day/bg-img-pod.png);
     background-size: cover;
     background-position: bottom center;
 }
@@ -541,19 +542,18 @@ as first-child has extra specificity*/
 @media (min-width: 35rem) {
     .picture-of-the-day {
         background-position: center center;
-        background-image: url(./assets/background/picture-of-the-day/bg-img-pfd2.png);
+        background-image: url(./assets/background/picture-of-the-day/bg-img-pod.png);
         background-size: cover;
     }
 }
 
 @media (min-width: 45rem) {
     .picture-of-the-day {
-        background-image: url(./assets/background/picture-of-the-day/bg-img-pfd2.png);
+        background-image: url(./assets/background/picture-of-the-day/bg-img-pod.png);
         background-size: cover;
         background-position: bottom center;
     }
 }
-
 
 
 /*--------------------------------------------------------------------------------------------------------------------*/

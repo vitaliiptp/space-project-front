@@ -10,7 +10,7 @@ const SolarSystem = () => {
 
   return (
 
-    <div className="solar-system-container" style={{display:"flex"}}>
+    <div className="flex-container">
       {Planets.map((planet) => (
         <Planet size={planet.size} name={planet.name} image={planet.image} />
       ))}
