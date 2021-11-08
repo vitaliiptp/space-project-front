@@ -110,7 +110,7 @@ const ModalPlanet = ({ showModal, setShowModal, name, image, showPlanetData}) =>
                 <Background onClick={closeModal} ref={modalRef}>
                     <animated.div style={animation}>
                         <ModalWrapper showModal={showModal}>
-                            <ModalImg src={image} alt="earth" />
+                            <ModalImg src={image} alt={name} />
                             <ModalContent>
                                 <h1>{name}</h1>
                                 <p><b>Gravity:</b> {showPlanetData.gravity} m/s²</p>
