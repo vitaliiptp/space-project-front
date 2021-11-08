@@ -501,7 +501,6 @@ as first-child has extra specificity*/
 
 @media (min-width: 45rem) {
     .solar-system {
-
         background-image: url(assets/background/solar-system/bg-img-ss.png);
         background-size: cover;
         background-position: bottom center;
@@ -646,7 +645,12 @@ as first-child has extra specificity*/
         padding: 0 3rem 0;
     }
 
+    .flex-container--pic-of-day_img {
+        width: 70%
+    }
+
     .flex-container--pic-of-day_text {
         padding-left: 2rem;
+        width: 30%;
     }
 }
