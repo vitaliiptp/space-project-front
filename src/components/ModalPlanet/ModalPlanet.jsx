@@ -76,7 +76,7 @@ const ModalPlanet = ({ showModal, setShowModal, name, image, showPlanetData}) =>
             duration: 250
         },
         opacity: showModal ? 1 : 0,
-        transform: showModal ? `translateY(0%)` : `translateY(-100%)`
+        transform: showModal ? `translateY(10%)` : `translateY(100%)`
     });
 
     const closeModal = e => {

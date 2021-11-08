@@ -622,7 +622,7 @@ as first-child has extra specificity*/
 
     .flex-container {
         display: flex;
-        min-height: 100vh;
+        /*min-height: 100vh;*/
         padding-bottom: max(6rem, 20vh);
     }
 
