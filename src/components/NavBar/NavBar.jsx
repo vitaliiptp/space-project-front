@@ -1,10 +1,12 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { Link, useLocation } from "react-router-dom";
 import {NavbarBrand} from "react-bootstrap";
+import NavigationContext from "../../context/NavigationContext";
 import logo from "../../assets/shared/logo3.png";
 
-const NavBar = ({ activeTab, setActiveTab }) => {
+const NavBar = () => {
     const [navToggle, setNavToggle] = useState(false);
+    const { activeTab, setActiveTab } = useContext(NavigationContext);
 
 
     //assigning location variable
