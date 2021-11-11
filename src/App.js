@@ -7,6 +7,7 @@ import HomePage from "./components/HomePage/HomePage";
 import Planet from "./components/Planet/Planet";
 import InternationalSpaceStation from "./components/InternationSpaceStation/InternationalSpaceStation";
 import {useState} from "react";
+import ISS from "./components/InternationSpaceStation/ISS/indexISS";
 
 
 
@@ -30,6 +31,7 @@ export default function App() {
             </Route>
             <Route exact path="/solar-system" component={SolarSystem} />
             <Route path="/isp" component={InternationalSpaceStation} />
+            <Route path="/:map" component={ISS} />
           </Switch>
         </div>
       </Router>
