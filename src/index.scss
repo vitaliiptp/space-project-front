@@ -560,6 +560,30 @@ as first-child has extra specificity*/
 }
 
 
+/* Contact */
+.contact {
+    background-image: url(./assets/background/international-space-station/bg-img-isp.png);
+    background-size: cover;
+    background-position: bottom center;
+}
+
+@media (min-width: 35rem) {
+    .contact {
+        background-position: center center;
+        background-image: url(./assets/background/international-space-station/bg-img-isp.png);
+        background-size: cover;
+    }
+}
+
+@media (min-width: 45rem) {
+    .contact {
+        background-image: url(./assets/background/international-space-station/bg-img-isp.png);
+        background-size: cover;
+        background-position: bottom center;
+    }
+}
+
+
 /*--------------------------------------------------------------------------------------------------------------------*/
 /*  Component specific                                                                                                */
 /*--------------------------------------------------------------------------------------------------------------------*/

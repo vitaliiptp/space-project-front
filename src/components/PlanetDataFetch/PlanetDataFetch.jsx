@@ -18,10 +18,7 @@ const usePlanetDataFetch = () => {
         });
   }, []);
 
-  return {
-    planetData,
-    loading,
-  };
+  return [planetData, loading]
 };
 
 export default usePlanetDataFetch;
