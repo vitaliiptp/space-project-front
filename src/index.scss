@@ -453,6 +453,11 @@ as first-child has extra specificity*/
 }
 
 
+.loader {
+    display: flex;
+    justify-content: center;
+}
+
 
 
 /*--------------------------------------------------------------------------------------------------------------------*/
@@ -559,10 +564,7 @@ as first-child has extra specificity*/
 /*  Component specific                                                                                                */
 /*--------------------------------------------------------------------------------------------------------------------*/
 
-.loader {
-    display: flex;
-    justify-content: center;
-}
+
 
 
 
@@ -646,7 +648,9 @@ as first-child has extra specificity*/
     }
 
     .flex-container--pic-of-day_img {
-        width: 70%
+        display: flex;
+        justify-content: center;
+        width: 70%;
     }
 
     .flex-container--pic-of-day_text {
