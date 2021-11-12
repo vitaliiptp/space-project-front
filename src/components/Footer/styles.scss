@@ -1,0 +1,66 @@
+.footer-container {
+  color: white;
+  flex-wrap: wrap;
+}
+
+.footer-container--top {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  padding: 2rem 0 1rem;
+}
+
+
+.footer-container--top-form {
+  display: flex;
+  justify-content: center;
+  flex: 1;
+}
+
+.footer-container--input {
+  border-radius: 3px;
+  border: transparent solid 1px;
+  margin-right: 0.3rem;
+}
+
+.footer-container--top-contact {
+  display: flex;
+  justify-content: center;
+  flex: 1;
+}
+
+.footer-container--top-social {
+  display: flex;
+  justify-content: center;
+  flex: 1;
+}
+
+.btn {
+  background-color: #263237;
+  border: white solid 1px;
+  padding: 0.2rem 0.4rem;
+}
+
+.btn:hover {
+  transform: scale(1.05);
+}
+
+.github-icon:hover {
+  cursor: pointer;
+  transform: scale(1.05);
+}
+
+
+.footer-container--bottom {
+  display: flex;
+  justify-content: center;
+  padding-top: 1rem;
+}
+
+
+
+@media (max-width: 800px) {
+  .footer-container--top-left, .footer-container--top-right {
+    flex: 100%;
+  }
+}

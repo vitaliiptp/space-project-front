@@ -453,6 +453,11 @@ as first-child has extra specificity*/
 }
 
 
+.loader {
+    display: flex;
+    justify-content: center;
+}
+
 
 
 /*--------------------------------------------------------------------------------------------------------------------*/
@@ -555,14 +560,38 @@ as first-child has extra specificity*/
 }
 
 
+/* Contact */
+.contact {
+    background-image: url(./assets/background/international-space-station/bg-img-isp.png);
+    background-size: cover;
+    background-position: bottom center;
+}
+
+@media (min-width: 35rem) {
+    .contact {
+        background-position: center center;
+        background-image: url(./assets/background/international-space-station/bg-img-isp.png);
+        background-size: cover;
+    }
+}
+
+@media (min-width: 45rem) {
+    .contact {
+        background-image: url(./assets/background/international-space-station/bg-img-isp.png);
+        background-size: cover;
+        background-position: bottom center;
+    }
+}
+
+
 /*--------------------------------------------------------------------------------------------------------------------*/
 /*  Component specific                                                                                                */
 /*--------------------------------------------------------------------------------------------------------------------*/
 
-.loader {
-    display: flex;
-    justify-content: center;
-}
+
+
+
+
 
 
 
@@ -646,7 +675,9 @@ as first-child has extra specificity*/
     }
 
     .flex-container--pic-of-day_img {
-        width: 70%
+        display: flex;
+        justify-content: center;
+        width: 70%;
     }
 
     .flex-container--pic-of-day_text {
