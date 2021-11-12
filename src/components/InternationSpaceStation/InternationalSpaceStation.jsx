@@ -7,7 +7,7 @@ const InternationalSpaceStation = () => {
         <div className="flex-container grid-container">
 
                 <div className="ISS__Button">
-                    <Link to="/:map" style={{ textDecoration: "none" }}>
+                    <Link to="/map" style={{ textDecoration: "none" }}>
                         <a className="large-button uppercase ff-serif text-dark bg-white">ISS</a>
                     </Link>
                 </div>
