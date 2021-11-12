@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import MyVerticallyCenteredModal from "../ModalPlanet/ModalPlanet2";
+import MyVerticallyCenteredModal from "../ModalPlanet/ModalPlanet";
 import "./Planet.css";
 import usePlanetDataFetch from "../PlanetDataFetch/PlanetDataFetch";
 
