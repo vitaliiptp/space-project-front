@@ -11,10 +11,8 @@ const Container = styled.div`
 `;
 
 const Planet = ({ name, image, size }) => {
-  //   // Params within React Router
-  // const params = match.params;
 
-  const [showModal, setShowModal] = useState(false);
+  // const [showModal, setShowModal] = useState(false);
   const { planetData } = usePlanetDataFetch();
   const [showPlanetData, setShowPlanetData] = useState("");
   const [modalShow, setModalShow] = React.useState(false);
@@ -40,7 +38,6 @@ const Planet = ({ name, image, size }) => {
           src={image}
           alt={name}
           onClick={openModal}
-          
         />
         <MyVerticallyCenteredModal
           show={modalShow}
@@ -48,9 +45,7 @@ const Planet = ({ name, image, size }) => {
           name={name}
           image={image}
           showPlanetData={showPlanetData}
-
         />
-    
       </Container>
     </div>
   );

@@ -15,13 +15,6 @@ export default function App() {
   const [activeTab, setActiveTab] = useState("home");
   const [navToggle, setNavToggle] = useState(false);
 
-  const [activeTab, setActiveTab] = useState('home')
-
-
-
-
-
-
   return (
     <Router>
       <div className={`App ${activeTab === "" ? "home" : activeTab}`}>
@@ -43,10 +36,10 @@ export default function App() {
           <Route exact path="/solar-system" component={SolarSystem} />
           <Route path="/isp" component={InternationalSpaceStation} />
           <Route path="/contact" component={ContactForm} />
+          <Route path="/map" component={ISS} />
         </Switch>
         <Footer />
       </div>
     </Router>
-            <Route path="/map" component={ISS} />
   );
 }
