@@ -2,6 +2,7 @@ import React from "react";
 import { useEffect, useState } from "react";
 import axios from "axios";
 
+
 const usePlanetDataFetch = () => {
   const [planetData, setPlanetData] = useState({});
   const [loading, setLoading] = useState(true);
@@ -18,7 +19,7 @@ const usePlanetDataFetch = () => {
         });
   }, []);
 
-  return [planetData, loading]
+  return {planetData, loading}
 };
 
 export default usePlanetDataFetch;

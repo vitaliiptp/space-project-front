@@ -4,18 +4,21 @@ import MyVerticallyCenteredModal from "../ModalPlanet/ModalPlanet";
 import "./Planet.css";
 import usePlanetDataFetch from "../PlanetDataFetch/PlanetDataFetch";
 
+
+
 const Container = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
 `;
 
+
 const Planet = ({ name, image, size }) => {
 
   // const [showModal, setShowModal] = useState(false);
   const { planetData } = usePlanetDataFetch();
   const [showPlanetData, setShowPlanetData] = useState("");
-  const [modalShow, setModalShow] = React.useState(false);
+  const [modalShow, setModalShow] = useState(false);
 
   const openModal = () => {
     setModalShow((prev) => !prev);
@@ -31,6 +34,7 @@ const Planet = ({ name, image, size }) => {
   };
 
   return (
+
     <div className="planet">
       <Container>
         <img
@@ -52,24 +56,3 @@ const Planet = ({ name, image, size }) => {
 };
 
 export default Planet;
-
-/*{
-      <div>
-        {loading && <div>Loading</div>}
-        {!loading && (
-          <div>
-            <button onClick={openModal}>More Info</button>
-          </div>
-        )}
-      </div>}*/
-
-       {/*showModal={showModal}
-          setShowModal={setShowModal}
-          name={name}
-          image={image}
-  showPlanetData={showPlanetData}
-
-
-onClick={() => setModalShow(true)}
-
-*/}

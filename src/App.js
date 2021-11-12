@@ -8,8 +8,11 @@ import InternationalSpaceStation from "./components/InternationSpaceStation/Inte
 import Footer from "./components/Footer/Footer";
 import ContactForm from "./components/ContactForm/ContactForm";
 import NavigationContext from "./context/NavigationContext";
-import "./App.css";
 import ISS from "./components/InternationSpaceStation/ISS/indexISS";
+import "./App.css";
+
+
+
 
 export default function App() {
   const [activeTab, setActiveTab] = useState("home");
@@ -23,16 +26,14 @@ export default function App() {
             activeTab: activeTab,
             setActiveTab: setActiveTab,
             navToggle: navToggle,
-            setNavToggle: setNavToggle,
+            setNavToggle: setNavToggle
           }}
         >
           <NavBar />
         </NavigationContext.Provider>
         <Switch>
           <Route exact path="/" component={HomePage} />
-          <Route path="/picture-of-the-day">
-            <PictureOfTheDay />
-          </Route>
+          <Route path="/picture-of-the-day"component={PictureOfTheDay} />
           <Route exact path="/solar-system" component={SolarSystem} />
           <Route path="/isp" component={InternationalSpaceStation} />
           <Route path="/contact" component={ContactForm} />

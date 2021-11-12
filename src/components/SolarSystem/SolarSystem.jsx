@@ -24,11 +24,7 @@ const SolarSystem = () => {
               name={planet.name}
               image={planet.image}
             />
-
           ))}
-
-          
-
         </div>
       )}
     </>

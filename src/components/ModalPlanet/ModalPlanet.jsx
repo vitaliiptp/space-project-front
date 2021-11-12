@@ -1,15 +1,16 @@
 import Modal from "react-bootstrap/Modal";
 import { Button } from "react-bootstrap";
-import React, { useRef, useEffect, useCallback } from "react";
+import React, { useEffect, useCallback } from "react";
 
-{
-  /*MODAL CENTER---------------------------------*/
-}
+
+
 export default function MyVerticallyCenteredModal(
   props,
   modalShow,
   setModalShow
 ) {
+
+
   const keyPress = useCallback(
     (e) => {
       if (e.key === "Escape" && modalShow) {
@@ -19,7 +20,7 @@ export default function MyVerticallyCenteredModal(
     },
     [setModalShow, modalShow]
   );
-  const modalRef = useRef();
+
   useEffect(() => {
     document.addEventListener("keydown", keyPress);
     return () => document.removeEventListener("keydown", keyPress);
@@ -47,7 +48,7 @@ export default function MyVerticallyCenteredModal(
           color: "white",
         }}
       >
-        <img style={{ width: "250px" }} src={props.image} />
+        <img style={{ width: "250px" }} src={props.image} alt={props.name} />
         <p>
           <p>
             <b>Gravity:</b> {props.showPlanetData.gravity} m/s²
@@ -55,7 +56,6 @@ export default function MyVerticallyCenteredModal(
           <p>
             <b>Radius:</b> {props.showPlanetData.meanRadius} km
           </p>
-
           <p>
             <b>Orbital period:</b> {props.showPlanetData.sideralOrbit} days
           </p>
@@ -69,7 +69,4 @@ export default function MyVerticallyCenteredModal(
       </Modal.Footer>
     </Modal>
   );
-}
-{
-  /*END MODAL ---------------------------------*/
 }
