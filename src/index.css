@@ -531,6 +531,31 @@ as first-child has extra specificity*/
     }
 }
 
+
+/* International Space Station Map */
+.map {
+    background-image: url(./assets/background/international-space-station/bg-img-isp.png);
+    background-size: cover;
+    background-position: bottom center;
+}
+
+@media (min-width: 35rem) {
+    .map {
+        background-position: center center;
+        background-image: url(./assets/background/international-space-station/bg-img-isp.png);
+        background-size: cover;
+    }
+}
+
+@media (min-width: 45rem) {
+    .map {
+        background-image: url(./assets/background/international-space-station/bg-img-isp.png);
+        background-size: cover;
+        background-position: bottom center;
+    }
+}
+
+
 /* Picture of the day */
 .picture-of-the-day {
     background-image: url(./assets/background/picture-of-the-day/bg-img-pod.png);
