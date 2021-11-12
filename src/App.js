@@ -9,10 +9,18 @@ import Footer from "./components/Footer/Footer";
 import ContactForm from "./components/ContactForm/ContactForm";
 import NavigationContext from "./context/NavigationContext";
 import "./App.css";
+import ISS from "./components/InternationSpaceStation/ISS/indexISS";
 
 export default function App() {
   const [activeTab, setActiveTab] = useState("home");
   const [navToggle, setNavToggle] = useState(false);
+
+  const [activeTab, setActiveTab] = useState('home')
+
+
+
+
+
 
   return (
     <Router>
@@ -39,5 +47,6 @@ export default function App() {
         <Footer />
       </div>
     </Router>
+            <Route path="/map" component={ISS} />
   );
 }
