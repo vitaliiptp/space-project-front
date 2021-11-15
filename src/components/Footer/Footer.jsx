@@ -9,7 +9,7 @@ const Footer = () => {
     return (
 
 
-        <footer className="footer-container primary-header primary-navigation">
+        <footer className="footer-container footer primary-footer">
             <div className="footer-container--top">
                 <form className="footer-container--top-form">
                     <input type="text" className="footer-container--input" placeholder="Your email" aria-label="Your email" />
