@@ -1,11 +1,8 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import ModalPlanet from "../ModalPlanet/ModalPlanet";
+import PlanetModal from "../PlanetModal/PlanetModal";
 import "./Planet.scss";
 import usePlanetDataFetched from "../PlanetDataFetched/PlanetDataFetched";
-
-
-
 
 const Container = styled.div`
   display: flex;
@@ -13,19 +10,15 @@ const Container = styled.div`
   align-items: center;
 `;
 
-
 const Planet = ({ name, image, size }) => {
-
   const [showPlanetData, setShowPlanetData] = useState("");
   const [openPlanetModal, setOpenPlanetModal] = useState(false);
   const { planetData } = usePlanetDataFetched();
-
 
   const openModal = () => {
     setOpenPlanetModal((prev) => !prev);
     planetDataFilter();
   };
-  
 
   const planetDataFilter = () => {
     setShowPlanetData(
@@ -35,16 +28,15 @@ const Planet = ({ name, image, size }) => {
   };
 
   return (
-
     <div className="planet">
       <Container>
         <img
-          style={{ width: size, cursor: 'pointer' }}
+          style={{ width: size, cursor: "pointer" }}
           src={image}
           alt={name}
           onClick={openModal}
         />
-        <ModalPlanet
+        <PlanetModal
           show={openPlanetModal}
           onHide={() => setOpenPlanetModal(false)}
           name={name}

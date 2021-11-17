@@ -4,11 +4,14 @@ import { NavbarBrand } from "react-bootstrap";
 import MainContext from "../../context/MainContext";
 import logo from "../../assets/shared/logo3.png";
 
-
-
-const NavBar = ({ navToggle, setNavToggle, handleShowLoginModal }) => {
+const NavBar = ({
+  navToggle,
+  setNavToggle,
+  handleShowLoginModal,
+  loginStatus,
+  handleLogout,
+}) => {
   const { activeTab, setActiveTab } = useContext(MainContext);
-
 
   //assigning location variable
   const location = useLocation();
@@ -18,17 +21,14 @@ const NavBar = ({ navToggle, setNavToggle, handleShowLoginModal }) => {
   const splitLocation = pathname.split("/");
   setActiveTab(splitLocation[1]);
 
-
   const handleToggle = () => {
-    console.log(navToggle);
     setNavToggle(!navToggle);
   };
 
   const LogInOnClickHandler = () => {
     handleToggle();
     handleShowLoginModal();
-  }
-
+  };
 
   return (
     <div className="primary-header flex">
@@ -94,13 +94,23 @@ const NavBar = ({ navToggle, setNavToggle, handleShowLoginModal }) => {
               <span aria-hidden="true">04</span>Internation Space Station
             </Link>
           </li>
-          <li
-              onClick={LogInOnClickHandler}
-          >
-            <a className="ff-sans-cond uppercase text-accent letter-spacing-2">
-              <span >LogIn/ </span><span>SignUp</span>
-            </a>
-          </li>
+
+          {loginStatus ? (
+            <li onClick={handleLogout}>
+              <a className="ff-sans-cond uppercase text-accent letter-spacing-2">
+                <span>Log Out</span>
+              </a>
+            </li>
+          ) : (
+            <li onClick={LogInOnClickHandler}>
+              <a className="ff-sans-cond uppercase text-accent letter-spacing-2">
+                <>
+                  <span>LogIn/ </span>
+                  <span>SignUp</span>
+                </>
+              </a>
+            </li>
+          )}
         </ul>
       </nav>
     </div>

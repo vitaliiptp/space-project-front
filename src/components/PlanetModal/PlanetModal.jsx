@@ -1,13 +1,9 @@
 import Modal from "react-bootstrap/Modal";
 import { Button } from "react-bootstrap";
 import React, { useEffect, useCallback } from "react";
-import './ModalPlanet.scss';
+import "./PlanetModal.scss";
 
-
-
-const ModalPlanet = (props, openPlanetModal, setOpenPlanetModal) => {
-
-
+const PlanetModal = (props, openPlanetModal, setOpenPlanetModal) => {
   const keyPress = useCallback(
     (e) => {
       if (e.key === "Escape" && openPlanetModal) {
@@ -23,7 +19,6 @@ const ModalPlanet = (props, openPlanetModal, setOpenPlanetModal) => {
     return () => document.removeEventListener("keydown", keyPress);
   }, [keyPress]);
 
-
   return (
     <Modal
       {...props}
@@ -35,9 +30,7 @@ const ModalPlanet = (props, openPlanetModal, setOpenPlanetModal) => {
         style={{ backgroundColor: "#0e1013", color: "#00a1cc" }}
         closeButton
       >
-        <Modal.Title>
-          {props.name}
-        </Modal.Title>
+        <Modal.Title>{props.name}</Modal.Title>
       </Modal.Header>
       <Modal.Body
         style={{
@@ -68,7 +61,6 @@ const ModalPlanet = (props, openPlanetModal, setOpenPlanetModal) => {
       </Modal.Footer>
     </Modal>
   );
-}
+};
 
-
-export default ModalPlanet;
+export default PlanetModal;

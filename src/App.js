@@ -10,53 +10,68 @@ import ContactForm from "./components/ContactForm/ContactForm";
 import MainContext from "./context/MainContext";
 import ISS from "./components/InternationSpaceStation/ISS/indexISS";
 import LoginFormModal from "./components/LoginFormModal/LoginFormModal";
-import SignUpForm from "./components/SignUp/SignUpForm";
+import SignUpFormModal from "./components/SignUpFormModal/SignUpFormModal";
 import "./App.css";
-import SignUpFormModal from "./components/SignUp/SignUpForm";
-
-
 
 export default function App() {
   const [activeTab, setActiveTab] = useState("home");
   const [navToggle, setNavToggle] = useState(false);
   const [loading, setLoading] = useState(true);
+  const [loginStatus, setLoginStatus] = useState(false);
+  const [email, setEmail] = useState("");
 
+  // declare a new state variable for modal open
+  const [openLoginModal, setOpenLoginModal] = useState(false);
+  const [openSignupModal, setOpenSignupModal] = useState(false);
+  const [openContactModal, setOpenContactModal] = useState(false);
+  // const [openPlanetModal, setOpenPlanetModal] = useState(false);
 
+  // function to handle login/logout status
+  const handleLogin = () => {
+    setLoginStatus(true);
+  };
+  const handleLogout = () => {
+    setLoginStatus(false);
+  };
 
+  // function to handle email state from footer and login page
+  const handleEmail = (e) => {
+    setEmail(e.target.value);
+  };
 
-    // declare a new state variable for modal open
-    const [openLoginModal, setOpenLoginModal] = useState(false);
-    const [openSignupModal, setOpenSignupModal] = useState(false);
-    const [openContactModal, setOpenContactModal] = useState(false);
-    // const [openPlanetModal, setOpenPlanetModal] = useState(false);
+  // function to handle modal open
+  const handleShowLoginModal = () => {
+    setOpenLoginModal(true);
+  };
 
+  const handleShowSignupModal = () => {
+    setOpenSignupModal(true);
+  };
 
-    // function to handle modal open
-    const handleShowLoginModal = () => {
-        setOpenLoginModal(true);
-    };
-    const handleShowSignupModal = () => {
-        setOpenSignupModal(true);
-    };
+  const handleShowContactModal = () => {
+    setOpenContactModal(true);
+  };
 
-    const handleShowContactModal = () => {
-        setOpenContactModal(true);
-    };
+  // const handleShowPlanetModal = () => {
+  //     setOpenPlanetModal(true);
+  // };
 
-    // function to handle modal close
-    const handleCloseLoginModal = () => {
-        setOpenLoginModal(false);
-    };
-    const handleCloseSignupModal = () => {
-        setOpenSignupModal(false);
-    };
+  // function to handle modal close
+  const handleCloseLoginModal = () => {
+    setOpenLoginModal(false);
+  };
 
-    const handleCloseContactModal = () => {
-        setOpenContactModal(false);
-    };
+  const handleCloseSignupModal = () => {
+    setOpenSignupModal(false);
+  };
 
+  const handleCloseContactModal = () => {
+    setOpenContactModal(false);
+  };
 
-
+  // const handleClosePlanetModal = () => {
+  //     setOpenPlanetModal(false);
+  // };
 
   return (
     <MainContext.Provider
@@ -65,14 +80,20 @@ export default function App() {
         setActiveTab: setActiveTab,
         loading: loading,
         setLoading: setLoading,
-
-          // showModal: showModal,
-          // setShowModal: setShowModal
+        // openPlanetModal: openPlanetModal,
+        // handleShowPlanetModal: handleShowPlanetModal,
+        // handleClosePlanetModal: handleClosePlanetModal
       }}
     >
       <Router>
         <div className={`App ${activeTab === "" ? "home" : activeTab}`}>
-          <NavBar navToggle={navToggle} setNavToggle={setNavToggle} handleShowLoginModal={handleShowLoginModal}/>
+          <NavBar
+            navToggle={navToggle}
+            setNavToggle={setNavToggle}
+            handleShowLoginModal={handleShowLoginModal}
+            loginStatus={loginStatus}
+            handleLogout={handleLogout}
+          />
           <Switch>
             <Route exact path="/" component={HomePage} />
             <Route path="/picture-of-the-day" component={PictureOfTheDay} />
@@ -80,13 +101,31 @@ export default function App() {
             <Route path="/isp" component={InternationalSpaceStation} />
             <Route path="/contact" component={ContactForm} />
             <Route path="/map" component={ISS} />
-            {/*<Route path="/login" component={LoginFormModal} />*/}
-            {/*<Route path="/signup" component={SignUpForm} />*/}
           </Switch>
-          <Footer handleShowContactModal={handleShowContactModal} handleShowSignupModal={handleShowSignupModal} />
-        <LoginFormModal openLoginModal={openLoginModal} handleCloseLoginModal={handleCloseLoginModal} handleShowSignupModal={handleShowSignupModal} />
-            <SignUpFormModal openSignupModal={openSignupModal} handleCloseSignupModal={handleCloseSignupModal} handleShowLoginModal={handleShowLoginModal} />
-        <ContactForm openContactModal={openContactModal} handleCloseContactModal={handleCloseContactModal} />
+          <Footer
+            handleShowContactModal={handleShowContactModal}
+            handleShowSignupModal={handleShowSignupModal}
+            loginStatus={loginStatus}
+            handleEmail={handleEmail}
+          />
+          <LoginFormModal
+            openLoginModal={openLoginModal}
+            handleCloseLoginModal={handleCloseLoginModal}
+            handleShowSignupModal={handleShowSignupModal}
+            loginStatus={loginStatus}
+            handleLogin={handleLogin}
+          />
+          <SignUpFormModal
+            openSignupModal={openSignupModal}
+            handleCloseSignupModal={handleCloseSignupModal}
+            handleShowLoginModal={handleShowLoginModal}
+            handleEmail={handleEmail}
+            email={email}
+          />
+          <ContactForm
+            openContactModal={openContactModal}
+            handleCloseContactModal={handleCloseContactModal}
+          />
         </div>
       </Router>
     </MainContext.Provider>

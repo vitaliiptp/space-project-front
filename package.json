@@ -19,6 +19,7 @@
     "react-spring": "^9.3.0",
     "sass": "^1.43.4",
     "styled-components": "^5.3.3",
+    "sweetalert2": "^11.1.10",
     "uuid": "^8.3.2",
     "web-vitals": "^1.0.1"
   },

@@ -7,10 +7,8 @@ import "./SolarSystem.scss";
 // import Modal from 'react-bootstrap/Modal'
 // import { Button} from 'react-bootstrap';
 
-
 const SolarSystem = () => {
   const { loading } = usePlanetDataFetch();
-  
 
   return (
     <>
