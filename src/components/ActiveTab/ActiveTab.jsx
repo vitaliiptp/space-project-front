@@ -1,11 +1,11 @@
 // import React, {useContext} from "react";
 // import { useLocation } from "react-router-dom";
-// import NavigationContext from "../../context/NavigationContext";
+// import MainContext from "../../context/MainContext";
 //
 //
 //
 // const useActiveTab = () => {
-//     const { activeTab, setActiveTab } = useContext(NavigationContext);
+//     const { activeTab, setActiveTab } = useContext(MainContext);
 //
 //
 //     //assigning location variable

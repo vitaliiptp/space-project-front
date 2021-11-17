@@ -1,13 +1,14 @@
-import React, { useState, useEffect } from "react";
+import React, {useState, useEffect, useContext} from "react";
 import axios from "axios";
 import Loader from "../Loader/Loader";
+import MainContext from "../../context/MainContext";
 
 const apiKey = process.env.REACT_APP_NASA_KEY;
 
 export default function NasaPhoto() {
     // const [showModal, setShowModal] = useState(false);
     const [photoData, setPhotoData] = useState(null);
-    const [loading, setLoading] = useState(true);
+    const { loading, setLoading } = useContext(MainContext);
 
     useEffect(() => {
         // Send the request

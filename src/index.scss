@@ -612,9 +612,15 @@ as first-child has extra specificity*/
 /*  Component specific                                                                                                */
 /*--------------------------------------------------------------------------------------------------------------------*/
 
+.redirect-link {
+    cursor: pointer;
+    padding: 1rem 0 0.5rem;
+    text-align: center;
+}
 
-
-
+.redirect-link:hover {
+    color: #1562b7;
+}
 
 
 
@@ -674,7 +680,6 @@ as first-child has extra specificity*/
 
     .flex-container {
         display: flex;
-        /*min-height: 100vh;*/
         padding-bottom: max(6rem, 20vh);
     }
 

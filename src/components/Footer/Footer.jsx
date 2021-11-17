@@ -1,11 +1,14 @@
 import React from 'react';
-import {Link} from "react-router-dom";
+// import {Link} from "react-router-dom";
 import { FaGithub } from 'react-icons/fa';
-import './styles.scss';
+import './Footer.scss';
 
 
 
-const Footer = () => {
+
+const Footer = ({ handleShowContactModal, handleShowSignupModal }) => {
+
+
     return (
 
 
@@ -14,11 +17,11 @@ const Footer = () => {
                 <form className="footer-container--top-form">
                     <input type="text" className="footer-container--input" placeholder="Your email" aria-label="Your email" />
                     <div>
-                        <button className="btn ff-sans-cond uppercase text-white letter-spacing-2" type="button">Sign up</button>
+                        <button className="btn ff-sans-cond uppercase text-white letter-spacing-2" type="button" onClick={handleShowSignupModal}>Sign up</button>
                     </div>
                 </form>
                 <div className="footer-container--top-contact">
-                    <button className="btn ff-sans-cond uppercase letter-spacing-2"><Link to="/contact" style={{ color: 'white' }}>Contact Us</Link></button>
+                    <button className="btn ff-sans-cond uppercase letter-spacing-2" onClick={handleShowContactModal}>Contact Us</button>
                 </div>
                 <div className="footer-container--top-social">
                     <FaGithub size={30} className="github-icon" />

@@ -1,30 +1,29 @@
 import Modal from "react-bootstrap/Modal";
 import { Button } from "react-bootstrap";
 import React, { useEffect, useCallback } from "react";
+import './ModalPlanet.scss';
 
 
 
-export default function MyVerticallyCenteredModal(
-  props,
-  modalShow,
-  setModalShow
-) {
+const ModalPlanet = (props, openPlanetModal, setOpenPlanetModal) => {
 
 
   const keyPress = useCallback(
     (e) => {
-      if (e.key === "Escape" && modalShow) {
-        setModalShow(false);
+      if (e.key === "Escape" && openPlanetModal) {
+        setOpenPlanetModal(false);
         console.log("I pressed");
       }
     },
-    [setModalShow, modalShow]
+    [setOpenPlanetModal, openPlanetModal]
   );
 
   useEffect(() => {
     document.addEventListener("keydown", keyPress);
     return () => document.removeEventListener("keydown", keyPress);
   }, [keyPress]);
+
+
   return (
     <Modal
       {...props}
@@ -36,7 +35,7 @@ export default function MyVerticallyCenteredModal(
         style={{ backgroundColor: "#0e1013", color: "#00a1cc" }}
         closeButton
       >
-        <Modal.Title id="contained-modal-title-vcenter">
+        <Modal.Title>
           {props.name}
         </Modal.Title>
       </Modal.Header>
@@ -51,16 +50,16 @@ export default function MyVerticallyCenteredModal(
         <img style={{ width: "250px" }} src={props.image} alt={props.name} />
         <p>
           <p>
-            <b>Gravity:</b> {props.showPlanetData.gravity} m/s²
+            <b>Gravity:</b> {props.showplanetdata.gravity} m/s²
           </p>
           <p>
-            <b>Radius:</b> {props.showPlanetData.meanRadius} km
+            <b>Radius:</b> {props.showplanetdata.meanRadius} km
           </p>
           <p>
-            <b>Orbital period:</b> {props.showPlanetData.sideralOrbit} days
+            <b>Orbital period:</b> {props.showplanetdata.sideralOrbit} days
           </p>
           <p>
-            <b>Rotation period:</b> {props.showPlanetData.sideralRotation} days
+            <b>Rotation period:</b> {props.showplanetdata.sideralRotation} days
           </p>
         </p>
       </Modal.Body>
@@ -70,3 +69,6 @@ export default function MyVerticallyCenteredModal(
     </Modal>
   );
 }
+
+
+export default ModalPlanet;
