@@ -1,0 +1,152 @@
+.primary-footer {
+  --gap: clamp(1.5rem, 5vw, 3.5rem);
+  --underline-gap: 0.7rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  background: hsl( var(--clr-white) / 0.05);
+  backdrop-filter: blur(1.5rem);
+}
+
+.primary-footer a {
+  text-decoration: none;
+}
+
+.primary-footer a > span {
+  font-weight: 700;
+  margin-right: .5em;
+}
+
+.footer {
+  justify-content: space-between;
+  align-items: start;
+}
+
+.footer {
+  justify-content: space-between;
+  align-items: start;
+}
+
+
+@media (max-width: 35rem) {
+  .primary-footer {
+    --underline-gap: .5rem;
+    position: fixed;
+    z-index: 1000;
+    inset: 0 0 0 30%;
+    list-style: none;
+    padding: min(20rem, 15vh) 2rem;
+    margin: 0;
+    flex-direction: column;
+    transform: translateX(100%);
+    transition: transform 500ms ease-in-out;
+  }
+
+  .primary-footer[data-visible="true"] {
+    transform: translateX(0);
+  }
+
+  .primary-footer.underline-indicators > .active {
+    border: 0;
+  }
+}
+
+@media (min-width: 35em) {
+  .primary-footer {
+    padding-inline: clamp(3rem, 7vw, 7rem);
+  }
+}
+
+@media (min-width: 35em) and (max-width: 44.999em) {
+  .primary-footer a > span {
+    display: none;
+  }
+}
+
+@media (min-width: 45em) {
+  .footer {
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .footer::after {
+    display: block;
+    position: relative;
+    height: 1px;
+    width: 100%;
+    margin-right: -2.5rem;
+    background: hsl(var(--clr-white) / .25);
+    order: 1;
+  }
+}
+
+
+
+.footer-container {
+  color: white;
+  flex-wrap: wrap;
+}
+
+.footer-container--top {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  padding: 2rem 0 1rem;
+}
+
+
+.footer-container--top-form {
+  display: flex;
+  justify-content: center;
+  flex: 1;
+}
+
+.footer-container--input {
+  border-radius: 3px;
+  border: transparent solid 1px;
+  margin-right: 0.3rem;
+}
+
+.footer-container--top-contact {
+  display: flex;
+  justify-content: center;
+  flex: 1;
+}
+
+.footer-container--top-social {
+  display: flex;
+  justify-content: center;
+  flex: 1;
+}
+
+.btn {
+  background-color: #263237;
+  border: white solid 1px;
+  padding: 0.2rem 0.4rem;
+  color: white;
+}
+
+.btn:hover {
+  transform: scale(1.01);
+  color: white;
+}
+
+.github-icon:hover {
+  cursor: pointer;
+  transform: scale(1.05);
+}
+
+
+.footer-container--bottom {
+  display: flex;
+  justify-content: center;
+  padding-top: 1rem;
+}
+
+
+
+@media (max-width: 800px) {
+  .footer-container--top-left, .footer-container--top-right {
+    flex: 100%;
+  }
+}

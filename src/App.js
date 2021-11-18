@@ -7,40 +7,127 @@ import HomePage from "./components/HomePage/HomePage";
 import InternationalSpaceStation from "./components/InternationSpaceStation/InternationalSpaceStation";
 import Footer from "./components/Footer/Footer";
 import ContactForm from "./components/ContactForm/ContactForm";
-import NavigationContext from "./context/NavigationContext";
+import MainContext from "./context/MainContext";
 import ISS from "./components/InternationSpaceStation/ISS/indexISS";
+import LoginFormModal from "./components/LoginFormModal/LoginFormModal";
+import SignUpFormModal from "./components/SignUpFormModal/SignUpFormModal";
 import "./App.css";
-
-
-
 
 export default function App() {
   const [activeTab, setActiveTab] = useState("home");
   const [navToggle, setNavToggle] = useState(false);
+  const [loading, setLoading] = useState(true);
+  const [loginStatus, setLoginStatus] = useState(false);
+  const [email, setEmail] = useState("");
+
+  // declare a new state variable for modal open
+  const [openLoginModal, setOpenLoginModal] = useState(false);
+  const [openSignupModal, setOpenSignupModal] = useState(false);
+  const [openContactModal, setOpenContactModal] = useState(false);
+  // const [openPlanetModal, setOpenPlanetModal] = useState(false);
+
+  // function to handle login/logout status
+  const handleLogin = () => {
+    setLoginStatus(true);
+  };
+  const handleLogout = () => {
+    setLoginStatus(false);
+  };
+
+  // function to handle email state from footer and login page
+  const handleEmail = (e) => {
+    setEmail(e.target.value);
+  };
+
+  // function to handle modal open
+  const handleShowLoginModal = () => {
+    setOpenLoginModal(true);
+  };
+
+  const handleShowSignupModal = () => {
+    setOpenSignupModal(true);
+  };
+
+  const handleShowContactModal = () => {
+    setOpenContactModal(true);
+  };
+
+  // const handleShowPlanetModal = () => {
+  //     setOpenPlanetModal(true);
+  // };
+
+  // function to handle modal close
+  const handleCloseLoginModal = () => {
+    setOpenLoginModal(false);
+  };
+
+  const handleCloseSignupModal = () => {
+    setOpenSignupModal(false);
+  };
+
+  const handleCloseContactModal = () => {
+    setOpenContactModal(false);
+  };
+
+  // const handleClosePlanetModal = () => {
+  //     setOpenPlanetModal(false);
+  // };
 
   return (
-    <Router>
-      <div className={`App ${activeTab === "" ? "home" : activeTab}`}>
-        <NavigationContext.Provider
-          value={{
-            activeTab: activeTab,
-            setActiveTab: setActiveTab,
-            navToggle: navToggle,
-            setNavToggle: setNavToggle
-          }}
-        >
-          <NavBar />
-        </NavigationContext.Provider>
-        <Switch>
-          <Route exact path="/" component={HomePage} />
-          <Route path="/picture-of-the-day"component={PictureOfTheDay} />
-          <Route exact path="/solar-system" component={SolarSystem} />
-          <Route path="/isp" component={InternationalSpaceStation} />
-          <Route path="/contact" component={ContactForm} />
-          <Route path="/map" component={ISS} />
-        </Switch>
-        <Footer />
-      </div>
-    </Router>
+    <MainContext.Provider
+      value={{
+        activeTab: activeTab,
+        setActiveTab: setActiveTab,
+        loading: loading,
+        setLoading: setLoading,
+        // openPlanetModal: openPlanetModal,
+        // handleShowPlanetModal: handleShowPlanetModal,
+        // handleClosePlanetModal: handleClosePlanetModal
+      }}
+    >
+      <Router>
+        <div className={`App ${activeTab === "" ? "home" : activeTab}`}>
+          <NavBar
+            navToggle={navToggle}
+            setNavToggle={setNavToggle}
+            handleShowLoginModal={handleShowLoginModal}
+            loginStatus={loginStatus}
+            handleLogout={handleLogout}
+          />
+          <Switch>
+            <Route exact path="/" component={HomePage} />
+            <Route path="/picture-of-the-day" component={PictureOfTheDay} />
+            <Route exact path="/solar-system" component={SolarSystem} />
+            <Route path="/isp" component={InternationalSpaceStation} />
+            <Route path="/contact" component={ContactForm} />
+            <Route path="/map" component={ISS} />
+          </Switch>
+          <Footer
+            handleShowContactModal={handleShowContactModal}
+            handleShowSignupModal={handleShowSignupModal}
+            loginStatus={loginStatus}
+            handleEmail={handleEmail}
+          />
+          <LoginFormModal
+            openLoginModal={openLoginModal}
+            handleCloseLoginModal={handleCloseLoginModal}
+            handleShowSignupModal={handleShowSignupModal}
+            loginStatus={loginStatus}
+            handleLogin={handleLogin}
+          />
+          <SignUpFormModal
+            openSignupModal={openSignupModal}
+            handleCloseSignupModal={handleCloseSignupModal}
+            handleShowLoginModal={handleShowLoginModal}
+            handleEmail={handleEmail}
+            email={email}
+          />
+          <ContactForm
+            openContactModal={openContactModal}
+            handleCloseContactModal={handleCloseContactModal}
+          />
+        </div>
+      </Router>
+    </MainContext.Provider>
   );
 }

@@ -1,0 +1,33 @@
+.form-main {
+    display: flex;
+    min-height: 100vh;
+    justify-content: center;
+    color: white;
+}
+
+.form-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 5rem;
+    height: 20rem;
+    padding: 0;
+    width: 40%;
+}
+
+.form-container--name,
+.form-container--message,
+.form-container--email {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.form-container--input {
+    border-radius: 3px;
+    border: transparent solid 1px;
+    margin-bottom: 0.7rem;
+    width: 60%;
+}

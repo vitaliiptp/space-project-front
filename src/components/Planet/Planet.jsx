@@ -1,10 +1,8 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import MyVerticallyCenteredModal from "../ModalPlanet/ModalPlanet";
-import "./Planet.css";
-import usePlanetDataFetch from "../PlanetDataFetch/PlanetDataFetch";
-
-
+import PlanetModal from "../PlanetModal/PlanetModal";
+import "./Planet.scss";
+import usePlanetDataFetched from "../PlanetDataFetched/PlanetDataFetched";
 
 const Container = styled.div`
   display: flex;
@@ -12,19 +10,15 @@ const Container = styled.div`
   align-items: center;
 `;
 
-
 const Planet = ({ name, image, size }) => {
-
-  // const [showModal, setShowModal] = useState(false);
-  const { planetData } = usePlanetDataFetch();
   const [showPlanetData, setShowPlanetData] = useState("");
-  const [modalShow, setModalShow] = useState(false);
+  const [openPlanetModal, setOpenPlanetModal] = useState(false);
+  const { planetData } = usePlanetDataFetched();
 
   const openModal = () => {
-    setModalShow((prev) => !prev);
+    setOpenPlanetModal((prev) => !prev);
     planetDataFilter();
   };
-  
 
   const planetDataFilter = () => {
     setShowPlanetData(
@@ -34,21 +28,20 @@ const Planet = ({ name, image, size }) => {
   };
 
   return (
-
     <div className="planet">
       <Container>
         <img
-          style={{ width: size }}
+          style={{ width: size, cursor: "pointer" }}
           src={image}
           alt={name}
           onClick={openModal}
         />
-        <MyVerticallyCenteredModal
-          show={modalShow}
-          onHide={() => setModalShow(false)}
+        <PlanetModal
+          show={openPlanetModal}
+          onHide={() => setOpenPlanetModal(false)}
           name={name}
           image={image}
-          showPlanetData={showPlanetData}
+          showplanetdata={showPlanetData}
         />
       </Container>
     </div>

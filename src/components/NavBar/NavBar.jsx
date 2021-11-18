@@ -1,12 +1,17 @@
-import React, { useState, useContext } from "react";
+import React, { useContext } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { NavbarBrand } from "react-bootstrap";
-import NavigationContext from "../../context/NavigationContext";
+import MainContext from "../../context/MainContext";
 import logo from "../../assets/shared/logo3.png";
 
-const NavBar = () => {
-  const { activeTab, setActiveTab, navToggle, setNavToggle } =
-    useContext(NavigationContext);
+const NavBar = ({
+  navToggle,
+  setNavToggle,
+  handleShowLoginModal,
+  loginStatus,
+  handleLogout,
+}) => {
+  const { activeTab, setActiveTab } = useContext(MainContext);
 
   //assigning location variable
   const location = useLocation();
@@ -17,8 +22,12 @@ const NavBar = () => {
   setActiveTab(splitLocation[1]);
 
   const handleToggle = () => {
-    console.log(navToggle);
     setNavToggle(!navToggle);
+  };
+
+  const LogInOnClickHandler = () => {
+    handleToggle();
+    handleShowLoginModal();
   };
 
   return (
@@ -85,6 +94,23 @@ const NavBar = () => {
               <span aria-hidden="true">04</span>Internation Space Station
             </Link>
           </li>
+
+          {loginStatus ? (
+            <li onClick={handleLogout}>
+              <a className="ff-sans-cond uppercase text-accent letter-spacing-2">
+                <span>Log Out</span>
+              </a>
+            </li>
+          ) : (
+            <li onClick={LogInOnClickHandler}>
+              <a className="ff-sans-cond uppercase text-accent letter-spacing-2">
+                <>
+                  <span>LogIn/ </span>
+                  <span>SignUp</span>
+                </>
+              </a>
+            </li>
+          )}
         </ul>
       </nav>
     </div>
