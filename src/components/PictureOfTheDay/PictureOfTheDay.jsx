@@ -6,7 +6,6 @@ import MainContext from "../../context/MainContext";
 const apiKey = process.env.REACT_APP_NASA_KEY;
 
 export default function NasaPhoto() {
-    // const [showModal, setShowModal] = useState(false);
     const [photoData, setPhotoData] = useState(null);
     const { loading, setLoading } = useContext(MainContext);
 

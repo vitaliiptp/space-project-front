@@ -15,6 +15,7 @@ const Planet = ({ name, image, size }) => {
   const [openPlanetModal, setOpenPlanetModal] = useState(false);
   const { planetData } = usePlanetDataFetched();
 
+
   const openModal = () => {
     setOpenPlanetModal((prev) => !prev);
     planetDataFilter();

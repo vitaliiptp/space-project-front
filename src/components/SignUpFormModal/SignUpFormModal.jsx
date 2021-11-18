@@ -4,6 +4,7 @@ import TextField from "@material-ui/core/TextField";
 import Dialog from "@material-ui/core/Dialog";
 import Button from "@material-ui/core/Button";
 import axios from "axios";
+import Swal from "sweetalert2";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -55,15 +56,17 @@ const SignUpFormModal = ({
 
   const register = () => {
     axios
-      .post("/api/users/register", {
-        firstname: firstName,
-        lastname: lastName,
-        email: email,
-        password: password,
-      })
-      .then((response) => {
-        console.log(response);
-      });
+        .post("/api/users/register", {
+          firstname: firstName,
+          lastname: lastName,
+          email: email,
+          password: password,
+        })
+        .then((response) => {
+          if (response.status === 201) Swal.fire(`User ${response.data.email} has been created`);
+          else Swal.fire(response.data);
+          console.log(response);
+        });
   };
 
   const handleSubmit = (e) => {
