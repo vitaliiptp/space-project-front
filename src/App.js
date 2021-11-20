@@ -8,7 +8,6 @@ import InternationalSpaceStation from "./components/InternationSpaceStation/Inte
 import Footer from "./components/Footer/Footer";
 import ContactForm from "./components/ContactForm/ContactForm";
 import MainContext from "./context/MainContext";
-import ISS from "./components/InternationSpaceStation/ISS/indexISS";
 import LoginFormModal from "./components/LoginFormModal/LoginFormModal";
 import SignUpFormModal from "./components/SignUpFormModal/SignUpFormModal";
 import "./App.css";
@@ -27,10 +26,10 @@ export default function App() {
   // const [openPlanetModal, setOpenPlanetModal] = useState(false);
 
   // function to handle login/logout status
-  const handleLogin = () => {
+  const handleLoginStatus = () => {
     setLoginStatus(true);
   };
-  const handleLogout = () => {
+  const handleLogoutStatus = () => {
     setLoginStatus(false);
   };
 
@@ -92,7 +91,7 @@ export default function App() {
             setNavToggle={setNavToggle}
             handleShowLoginModal={handleShowLoginModal}
             loginStatus={loginStatus}
-            handleLogout={handleLogout}
+            handleLogoutStatus={handleLogoutStatus}
           />
           <Switch>
             <Route exact path="/" component={HomePage} />
@@ -100,7 +99,6 @@ export default function App() {
             <Route exact path="/solar-system" component={SolarSystem} />
             <Route path="/isp" component={InternationalSpaceStation} />
             <Route path="/contact" component={ContactForm} />
-            <Route path="/map" component={ISS} />
           </Switch>
           <Footer
             handleShowContactModal={handleShowContactModal}
@@ -113,7 +111,7 @@ export default function App() {
             handleCloseLoginModal={handleCloseLoginModal}
             handleShowSignupModal={handleShowSignupModal}
             loginStatus={loginStatus}
-            handleLogin={handleLogin}
+            handleLoginStatus={handleLoginStatus}
           />
           <SignUpFormModal
             openSignupModal={openSignupModal}
@@ -121,6 +119,8 @@ export default function App() {
             handleShowLoginModal={handleShowLoginModal}
             handleEmail={handleEmail}
             email={email}
+            loginStatus={loginStatus}
+            handleLoginStatus={handleLoginStatus}
           />
           <ContactForm
             openContactModal={openContactModal}

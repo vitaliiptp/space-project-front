@@ -4,7 +4,7 @@ import TextField from "@material-ui/core/TextField";
 import Dialog from "@material-ui/core/Dialog";
 import Button from "@material-ui/core/Button";
 import axios from "axios";
-import Swal from 'sweetalert2';
+import Swal from "sweetalert2";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -45,7 +45,7 @@ const LoginFormModal = ({
   openLoginModal,
   handleCloseLoginModal,
   handleShowSignupModal,
-  handleLogin,
+  handleLoginStatus,
 }) => {
   const classes = useStyles();
   // create state variables for each input
@@ -57,11 +57,12 @@ const LoginFormModal = ({
       .post("/api/auth/checkCredentials", { email: email, password: password })
       .then((response) => {
         if (response.status === 200) {
-          handleLogin();
-          Swal.fire(response.data);
-        } else {
+          handleLoginStatus();
           Swal.fire(response.data);
         }
+      })
+      .catch((err) => {
+        Swal.fire("Error logging in please try again");
       });
   };
 

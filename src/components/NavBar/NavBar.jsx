@@ -9,7 +9,7 @@ const NavBar = ({
   setNavToggle,
   handleShowLoginModal,
   loginStatus,
-  handleLogout,
+  handleLogoutStatus,
 }) => {
   const { activeTab, setActiveTab } = useContext(MainContext);
 
@@ -96,7 +96,7 @@ const NavBar = ({
           </li>
 
           {loginStatus ? (
-            <li onClick={handleLogout}>
+            <li onClick={handleLogoutStatus}>
               <a className="ff-sans-cond uppercase text-accent letter-spacing-2">
                 <span>Log Out</span>
               </a>
