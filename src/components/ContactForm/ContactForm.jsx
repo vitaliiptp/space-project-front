@@ -4,7 +4,7 @@ import TextField from "@material-ui/core/TextField";
 import Dialog from "@material-ui/core/Dialog";
 import Button from "@material-ui/core/Button";
 import axios from "axios";
-import Swal from 'sweetalert2';
+import Swal from "sweetalert2";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -44,24 +44,43 @@ const useStyles = makeStyles((theme) => ({
 const ContactForm = ({ openContactModal, handleCloseContactModal }) => {
   const classes = useStyles();
   const [status, setStatus] = useState("Submit");
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
+
+  const sendContactForm = () => {
     setStatus("Sending...");
-    const { name, email, message } = e.target.elements;
-    axios.post("/api/contact",
-    {name: name.value, email: email.value, message: message.value},
-    {headers: {
-        "Content-Type": "application/json;charset=utf-8"
-      }
-    })
-    .then((data) => {
-      console.log(data);
-      Swal.fire(data.data.status);
-    })
-
-    setStatus("Submit");
+    axios
+      .post(
+        "/api/contact",
+        { name: name, email: email, message: message },
+        {
+          headers: {
+            "Content-Type": "application/json;charset=utf-8",
+          },
+        }
+      )
+      .then((response) => {
+        console.log(response)
+        if (response.status === 200) {
+          Swal.fire(response.data.msg);
+          setStatus("Submit");
+          handleCloseContactModal()
+        } else {
+          Swal.fire(response.data.msg);
+          handleCloseContactModal();
+        }
+      })
   };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    handleCloseContactModal();
+  };
+
+
+
 
   return (
     <Dialog open={openContactModal} onClose={handleCloseContactModal}>
@@ -71,6 +90,8 @@ const ContactForm = ({ openContactModal, handleCloseContactModal }) => {
           label="First Name, Last Name"
           variant="filled"
           required
+          value={name}
+          onChange={(e) => setName(e.target.value)}
         />
         <TextField
           name="email"
@@ -78,6 +99,8 @@ const ContactForm = ({ openContactModal, handleCloseContactModal }) => {
           variant="filled"
           type="email"
           required
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
         />
         <TextField
           name="message"
@@ -86,12 +109,14 @@ const ContactForm = ({ openContactModal, handleCloseContactModal }) => {
           multiline
           rows={4}
           required
+          value={message}
+          onChange={(e) => setMessage(e.target.value)}
         />
         <Button
           type="submit"
           variant="contained"
           color="primary"
-          onClick={handleCloseContactModal}
+          onClick={sendContactForm}
         >
           {status}
         </Button>
@@ -101,4 +126,3 @@ const ContactForm = ({ openContactModal, handleCloseContactModal }) => {
 };
 
 export default ContactForm;
-

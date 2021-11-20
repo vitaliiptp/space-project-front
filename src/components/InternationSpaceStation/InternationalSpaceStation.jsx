@@ -1,25 +1,41 @@
-import React from 'react';
-import { Link } from "react-router-dom";
+import React, { useState, useEffect, useContext } from "react";
+import axios from "axios";
+import GoogleMapsStatic from "../GoogleMapsStatic/GoogleMapsStatic";
+import Loader from "../Loader/Loader";
+import MainContext from "../../context/MainContext";
+
+
 
 
 const InternationalSpaceStation = () => {
-    return (
-        <div className="flex-container grid-container">
+  const [longitude, setLongitude] = useState(0);
+  const [latitude, setLatitude] = useState(0);
+  const { loading, setLoading } = useContext(MainContext);
 
-                <div className="ISS__Button">
-                    <Link to="/map" style={{ textDecoration: "none" }}>
-                        <a className="large-button uppercase ff-serif text-dark bg-white">ISS</a>
-                    </Link>
-                </div>
 
-                {/* <div className="People_InSpace">
-                    <Link to="/solar-system" style={{ textDecoration: "none" }}>
-                        <a className="large-button uppercase ff-serif text-dark bg-white">How Many People Are In Space Right Now</a>
-                    </Link>
-                </div> */}
 
-        </div>
-    );
+  useEffect(() => {
+    axios
+        .get("http://api.open-notify.org/iss-now.json")
+        .then((response) => response.data)
+        .then((data) => {
+          setLongitude(parseFloat(data.iss_position.longitude));
+          setLatitude(parseFloat(data.iss_position.latitude));
+          setLoading(false);
+        });
+  }, []);
+
+
+
+  return (
+    <div>
+      {loading ? (
+        <Loader />
+      ) : (
+        <GoogleMapsStatic center={{ lat: latitude, lng: longitude }} zoom={0} />
+      )}
+    </div>
+  );
 };
 
 export default InternationalSpaceStation;
