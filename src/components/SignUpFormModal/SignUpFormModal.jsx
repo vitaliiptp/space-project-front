@@ -47,6 +47,7 @@ const SignUpFormModal = ({
   handleShowLoginModal,
   handleEmail,
   email,
+  handleLoginStatus,
 }) => {
   const classes = useStyles();
   // create state variables for each input
@@ -56,22 +57,23 @@ const SignUpFormModal = ({
 
   const register = () => {
     axios
-        .post("/api/users/register", {
-          firstname: firstName,
-          lastname: lastName,
-          email: email,
-          password: password,
-        })
-        .then((response) => {
-          if (response.status === 201) Swal.fire(`User ${response.data.email} has been created`);
-          else Swal.fire(response.data);
-          console.log(response);
-        });
+      .post("/api/users/register", {
+        firstname: firstName,
+        lastname: lastName,
+        email: email,
+        password: password,
+      })
+      .then((response) => {
+        handleLoginStatus();
+        Swal.fire(response.data);
+      })
+      .catch((err) => {
+        Swal.fire("Error logging in please try again");
+      });
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(firstName, lastName, email, password);
     handleCloseSignupModal();
   };
 

@@ -26,7 +26,7 @@ export default function NasaPhoto() {
     if (!photoData) return <div />;
 
     return (
-        <div className="">
+        <div>
             {loading ? (
                 <Loader />
             ) : (
