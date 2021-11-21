@@ -23,7 +23,7 @@
     "uuid": "^8.3.2",
     "web-vitals": "^1.0.1"
   },
-  "proxy": "http://localhost:3000/",
+  "proxy": "https://space-project-back.herokuapp.com/",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
