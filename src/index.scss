@@ -17,7 +17,7 @@
     --clr-white: 0 0% 100%;
 
     /* font-sizes */
-    --fs-900: clamp(5rem, 8vw + 1rem, 9.375rem);
+    --fs-900: clamp(5rem, calc(8vw + 1rem), 9.375rem);
     --fs-800: 3.5rem;
     --fs-700: 1.5rem;
     --fs-600: 1rem;
