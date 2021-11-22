@@ -14,6 +14,7 @@ const Footer = ({
     else handleShowSignupModal();
   };
 
+
   return (
     <footer className="footer-container footer primary-footer">
       <div className="footer-container--top">
@@ -44,7 +45,10 @@ const Footer = ({
           </button>
         </div>
         <div className="footer-container--top-social">
-          <FaGithub size={30} className="github-icon" />
+          <a href={'https://github.com/vitaliiptp'} style={{color: "white"}}>
+            <FaGithub size={30} className="github-icon" />
+          </a>
+
         </div>
       </div>
       <div className="footer-container--bottom">
