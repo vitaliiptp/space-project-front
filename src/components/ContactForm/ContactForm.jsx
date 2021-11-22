@@ -53,7 +53,7 @@ const ContactForm = ({ openContactModal, handleCloseContactModal }) => {
     setStatus("Sending...");
     axios
       .post(
-        "/api/contact",
+        "https://space-project-back.herokuapp.com/api/contact",
         { name: name, email: email, message: message },
         {
           headers: {

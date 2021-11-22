@@ -57,7 +57,7 @@ const SignUpFormModal = ({
 
   const register = () => {
     axios
-      .post("/api/users/register", {
+      .post("https://space-project-back.herokuapp.com/users/register", {
         firstname: firstName,
         lastname: lastName,
         email: email,

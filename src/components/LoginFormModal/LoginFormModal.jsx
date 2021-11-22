@@ -54,7 +54,7 @@ const LoginFormModal = ({
 
   const login = () => {
     axios
-      .post("/api/auth/checkCredentials", { email: email, password: password })
+      .post("https://space-project-back.herokuapp.com/api/auth/checkCredentials", { email: email, password: password })
       .then((response) => {
         if (response.status === 200) {
           handleLoginStatus();
