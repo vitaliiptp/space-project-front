@@ -1,6 +1,6 @@
 # Space Web App
 
-### This full-stack web application is a part of a team project at Wild Code School Bootcamp.
+### This full-stack web application.
 
 It consists of two repos:
 https://github.com/vitaliiptp/space-project-front
