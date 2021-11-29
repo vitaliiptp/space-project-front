@@ -1,5 +1,5 @@
 # Space Web App
-
+<br/>
 
 ### This full-stack web application is a part of a team project at Wild Code School Bootcamp.
 
@@ -7,7 +7,7 @@ It consists of two repos:
 https://github.com/vitaliiptp/space-project-front
 https://github.com/vitaliiptp/space-project-back
 
-<br>
+<br/>
 Fron-end was built using React, while back-end is bult with Node JS, Express and MySQL for databases.
 
 <br>
