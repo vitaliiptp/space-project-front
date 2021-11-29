@@ -31,7 +31,7 @@ Fron-end was built using React, while back-end is bult with Node JS, Express and
 
 
 
-Project on Heroku:
+### Project on Heroku:
 https://space-project-front.herokuapp.com/
 https://space-project-back.herokuapp.com/
 
