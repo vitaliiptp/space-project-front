@@ -1,6 +1,5 @@
 # Space Web App
 <br/>
-
 ### This full-stack web application is a part of a team project at Wild Code School Bootcamp.
 
 It consists of two repos:
