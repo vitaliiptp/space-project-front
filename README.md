@@ -1,6 +1,6 @@
-### Space Web App
+# Space Web App
 
-# This full-stack web application is a part of a team project at Wild Code School Bootcamp.
+### This full-stack web application is a part of a team project at Wild Code School Bootcamp.
 
 It consists of two repos:
 https://github.com/vitaliiptp/space-project-front
@@ -10,7 +10,7 @@ https://github.com/vitaliiptp/space-project-back
 Fron-end was built using React, while back-end is bult with Node JS, Express and MySQL for databases.
 
 
-# Among features implemented in this project are:
+### Among features implemented in this project are:
  - NASA API
  - Google Maps API
  - API to retrive information about planets in Solar System
@@ -38,17 +38,17 @@ https://space-project-back.herokuapp.com/
 
 ## Overview of the project:
 
-# Overall layout
+### Overall layout
 ![Alt Text](src/assets/shared/Overall_layout.gif)
 
-# Responsive design
+### Responsive design
 ![Alt Text](src/assets/shared/Responsive.gif)
 
-# Registration functionality
+### Registration functionality
 ![Alt Text](src/assets/shared/Registration.gif)
 
-# Login functionality
+### Login functionality
 ![Alt Text](src/assets/shared/Login.gif)
 
-# Contact form
+### Contact form
 ![Alt Text](src/assets/shared/Contact_form.gif)
