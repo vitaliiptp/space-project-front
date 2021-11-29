@@ -18,15 +18,15 @@ const Planet = ({ name, image, size }) => {
 
   const openModal = () => {
     setOpenPlanetModal((prev) => !prev);
-    planetDataFilter();
+    // planetDataFilter();
   };
 
-  const planetDataFilter = () => {
-    setShowPlanetData(
-      planetData.filter((planet) => planet.englishName === name)[0]
-    );
-    console.log(showPlanetData);
-  };
+  // const planetDataFilter = () => {
+  //   setShowPlanetData(
+  //     planetData.filter((planet) => planet.englishName === name)[0]
+  //   );
+  //   console.log(showPlanetData);
+  // };
 
   return (
     <div className="planet">
